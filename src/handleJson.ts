@@ -1,6 +1,6 @@
 import { javaClass, rawDataEntity, attributeType } from "./types";
 
-const jsonToJava = (data: any, fileName: string): javaClass[] => {
+const jsonToJava = (data: any, fileName: string, packageName: string = "com.example.demo"): javaClass[] => {
   const classes: javaClass[] = [];
   const queue: rawDataEntity[] = [];
 
@@ -8,7 +8,7 @@ const jsonToJava = (data: any, fileName: string): javaClass[] => {
 
   while (queue.length) {
     const entity: rawDataEntity = queue.shift() as rawDataEntity;
-    const javaClass: javaClass = { name: entity.name, attributes: [] };
+    const javaClass: javaClass = { name: entity.name, attributes: [], packageName: packageName };
 
     Object.keys(entity.rawData)
       .forEach((name: string) => {

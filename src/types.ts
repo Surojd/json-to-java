@@ -7,6 +7,7 @@ export type javaAttribute = {
 };
 
 export type javaClass = {
+  packageName: string,
   name: string,
   attributes: javaAttribute[]
 };

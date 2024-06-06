@@ -13,14 +13,14 @@ export const writeJavaClasses = (classes: javaClass[], dirPath: string): void =>
   });
 };
 
-export const openJsonFile = (filePath: string): javaClass[] | null => {
+export const openJsonFile = (filePath: string, packageName: string): javaClass[] | null => {
   const fileBody = fs.readFileSync(filePath, "utf8");
   const fileName = path.parse(filePath).name;
 
   try {
     const jsonRawData = JSON.parse(fileBody);
 
-    return jsonToJava(jsonRawData, fileName);
+    return jsonToJava(jsonRawData, fileName, packageName);
   }
   catch (ex) {
     console.error("Error parsing file to JSON.");

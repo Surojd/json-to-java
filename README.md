@@ -49,4 +49,13 @@ The rest of the other classes will also be in PascalCase, but will use the key i
 Does not convert complex types such as maps and nested lists 
 
 ## Release Notes
+### 1.0.1
+- Added support for lombok annotations
+   ##### Add Setting for lombok support
+    ```
+    {
+      // ....
+      "json2java.lombok" : true,
+    }
+    ```
 ### 1.0.0
